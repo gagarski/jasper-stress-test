@@ -123,7 +123,7 @@
     "y" : 206,
     "width" : 479,
     "height" : 74,
-    "plainText" : "Typography works inline: H2O, E = mc2, obsolete wording, and a corrected final statement.\nA larger phrase can sit beside a small ",
+    "plainText" : "Typography works inline: H2O, E = mc2, obsolete wording, and a corrected final statement.\nA larger phrase can sit beside a small annotation.",
     "globalAttributes" : [ {
       "attributeType" : "java.awt.font.TextAttribute",
       "name" : "family",
@@ -193,11 +193,11 @@
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "size",
         "valueType" : "Float",
-        "value" : "36.0"
+        "value" : "24.0"
       } ]
     }, {
       "startIndex" : 121,
-      "endIndex" : 129,
+      "endIndex" : 139,
       "attributes" : [ {
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "foreground",
@@ -207,11 +207,11 @@
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "size",
         "valueType" : "Float",
-        "value" : "36.0"
+        "value" : "10.0"
       } ]
     }, {
       "startIndex" : 0,
-      "endIndex" : 129,
+      "endIndex" : 140,
       "attributes" : [ {
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "family",

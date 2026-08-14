@@ -13,6 +13,8 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jasperreports.version>7.0.7</jasperreports.version>
+        <css4j.version>6.2</css4j.version>
+        <htmlparser.version>1.4.16</htmlparser.version>
         <exec.mainClass>com.example.reports.JasperStressTestApplication</exec.mainClass>
         <jackson.version>2.22.1</jackson.version>
         <args4j.version>2.37</args4j.version>
@@ -31,6 +33,19 @@
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>css4j</id>
+            <url>https://css4j.github.io/maven/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>args4j</groupId>
@@ -40,6 +55,16 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.sf.carte</groupId>
+            <artifactId>css4j</artifactId>
+            <version>${css4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>nu.validator</groupId>
+            <artifactId>htmlparser</artifactId>
+            <version>${htmlparser.version}</version>
         </dependency>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>

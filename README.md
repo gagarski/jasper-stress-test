@@ -3,7 +3,9 @@
 This project exercises concurrent JasperReports fills containing Swing-rendered
 HTML markup. It is intended to reproduce and compare initialization and
 threading behavior in JasperReports' modern `HtmlEditorKitMarkupProcessor` and
-legacy `JEditorPaneHtmlMarkupProcessor` implementations.
+legacy `JEditorPaneHtmlMarkupProcessor` implementations. It also contains an
+experimental CSS4J-backed processor for comparing a non-Swing parsing and CSS
+style-resolution path.
 
 The application:
 
@@ -22,6 +24,10 @@ does not use subreports or a custom JasperReports repository service.
 
 - Java 17 or newer
 - Maven 3.6.3 or newer
+
+CSS4J 6.2 is not published to Maven Central. The POM therefore declares the
+project's release repository at `https://css4j.github.io/maven/`. The
+Validator.nu HTML parser dependency is available from Maven Central.
 
 ## Build
 
@@ -59,8 +65,9 @@ HTML processor directly on executor threads, without warm-up.
 | `--html-editor-kit-warmup` | `false` | On the Swing EDT, creates an `HTMLEditorKit`, creates its default document, and parses representative HTML before concurrent fills begin. |
 | `--jeditor-pane-warmup` | `false` | On the Swing EDT, exercises the complete legacy path by constructing a `JEditorPane` with representative HTML and making it non-editable. This subsumes the editor-kit warm-up for legacy rendering. |
 | `--legacy-jeditor-pane-processor` | `false` | Selects JasperReports' deprecated `JEditorPaneHtmlMarkupProcessor`. When absent, the modern `HtmlEditorKitMarkupProcessor` is used. |
-| `--edt-rendering` | `false` | Delegates every HTML conversion to the Swing EDT. It can be combined with either HTML processor. |
-| `--generate-golden FILE` | unset | Leaves stress-test mode, fills once using the modern processor on the EDT, and writes pretty-printed golden JSON to `FILE`. It cannot be combined with the legacy processor. |
+| `--css4j-html-processor` | `false` | Selects the experimental CSS4J/Validator.nu processor. It cannot be combined with `--legacy-jeditor-pane-processor`. |
+| `--edt-rendering` | `false` | Delegates every HTML conversion to the Swing EDT. It can be combined with any selected HTML processor. |
+| `--generate-golden FILE` | unset | Leaves stress-test mode, fills once using the modern processor on the EDT, and writes pretty-printed golden JSON to `FILE`. It cannot be combined with the legacy or CSS4J processors. |
 | `--help`, `-h` | `false` | Prints command-line help and exits. |
 
 `--tasks` and `--threads` must be positive integers. Their defaults are
@@ -127,6 +134,30 @@ java -jar target/jasper-stress-test-1.0-SNAPSHOT.jar \
   --legacy-jeditor-pane-processor \
   --edt-rendering
 ```
+
+Run the CSS4J proof of concept concurrently:
+
+```shell
+java -jar target/jasper-stress-test-1.0-SNAPSHOT.jar \
+  --tasks 10000 \
+  --threads 40 \
+  --css4j-html-processor
+```
+
+The CSS4J mode can also be combined with `--edt-rendering`. This is useful as a
+control configuration even though CSS4J itself does not depend on Swing.
+
+The processor deliberately retains JasperReports' recursive conversion and
+list/flow state model. Validator.nu supplies the tolerant HTML DOM and CSS4J
+supplies computed styles; the POC does not attempt to add HTML features beyond
+the attributes Jasper's standard converter maps to styled text.
+
+The report uses valid legacy font sizes `6` and `2`. The CSS4J adapter maps the
+seven-step `<font size>` scale to Jasper/Swing's point-size table and customizes
+CSS4J's user-agent rules so `sub` and `sup` retain their inherited size while
+still producing superscript/subscript attributes. These compatibility rules let
+the CSS4J processor validate against the same Swing-generated golden reference.
+An explicitly supplied inline CSS `font-size` continues through CSS4J normally.
 
 ## Golden reference
 

@@ -60,6 +60,7 @@ public final class JasperStressTestApplication {
 
         SimpleJasperReportsContext context = createContext(
                 !options.generateGolden() && options.legacyJEditorPaneProcessor(),
+                !options.generateGolden() && options.css4jHtmlProcessor(),
                 options.generateGolden() || options.edtRendering()
         );
         JasperReport mainReport = compileMainReport(context);
@@ -146,6 +147,7 @@ public final class JasperStressTestApplication {
 
     private static SimpleJasperReportsContext createContext(
             boolean legacyJEditorPaneProcessor,
+            boolean css4jHtmlProcessor,
             boolean edtRendering
     ) {
         SimpleJasperReportsContext context = new SimpleJasperReportsContext(
@@ -154,10 +156,13 @@ public final class JasperStressTestApplication {
         if (edtRendering) {
             JasperSwingHacks.enableEdtHtmlRendering(
                     context,
-                    legacyJEditorPaneProcessor
+                    legacyJEditorPaneProcessor,
+                    css4jHtmlProcessor
             );
         } else if (legacyJEditorPaneProcessor) {
             JasperSwingHacks.useLegacyJEditorPaneHtmlProcessor(context);
+        } else if (css4jHtmlProcessor) {
+            JasperSwingHacks.useCss4jHtmlProcessor(context);
         }
 
         return context;
@@ -284,6 +289,10 @@ public final class JasperStressTestApplication {
         System.out.printf(
                 "Legacy HTML processor:    %s%n",
                 enabled(options.legacyJEditorPaneProcessor())
+        );
+        System.out.printf(
+                "CSS4J HTML processor:      %s%n",
+                enabled(options.css4jHtmlProcessor())
         );
         System.out.printf("EDT HTML rendering:      %s%n", enabled(options.edtRendering()));
         System.out.printf("Successful runs:         %,d%n", successfulRuns);

@@ -44,7 +44,7 @@
                      uuid="a90657f9-e5d4-4483-9303-50ee0871bf5e"
                      x="18" y="96" width="479" height="74"
                      markup="html">
-                <text><![CDATA[Typography works inline: H<sub>2</sub>O, E = mc<sup>2</sup>, <s>obsolete wording</s>, and a corrected <b>final statement</b>.<br><font size="14">A larger phrase</font> can sit beside <font size="8" color="#718096">a small annotation</font>.]]></text>
+                <text><![CDATA[Typography works inline: H<sub>2</sub>O, E = mc<sup>2</sup>, <s>obsolete wording</s>, and a corrected <b>final statement</b>.<br><font size="6">A larger phrase</font> can sit beside <font size="2" color="#718096">a small annotation</font>.]]></text>
             </element>
 
             <element kind="staticText"

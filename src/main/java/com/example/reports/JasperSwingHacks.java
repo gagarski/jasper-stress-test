@@ -55,16 +55,35 @@ public final class JasperSwingHacks {
         );
     }
 
+    public static void useCss4jHtmlProcessor(SimpleJasperReportsContext context) {
+        setHtmlProcessorFactory(
+                context,
+                Css4jHtmlMarkupProcessor.Factory.class
+        );
+    }
+
     public static void enableEdtHtmlRendering(
             SimpleJasperReportsContext context,
-            boolean legacyJEditorPaneProcessor
+            boolean legacyJEditorPaneProcessor,
+            boolean css4jHtmlProcessor
     ) {
         setHtmlProcessorFactory(
                 context,
-                legacyJEditorPaneProcessor
-                        ? EdtJEditorPaneHtmlMarkupProcessorFactory.class
-                        : EdtHtmlMarkupProcessorFactory.class
+                edtFactory(legacyJEditorPaneProcessor, css4jHtmlProcessor)
         );
+    }
+
+    private static Class<? extends MarkupProcessorFactory> edtFactory(
+            boolean legacyJEditorPaneProcessor,
+            boolean css4jHtmlProcessor
+    ) {
+        if (legacyJEditorPaneProcessor) {
+            return EdtJEditorPaneHtmlMarkupProcessorFactory.class;
+        }
+        if (css4jHtmlProcessor) {
+            return EdtCss4jHtmlMarkupProcessorFactory.class;
+        }
+        return EdtHtmlMarkupProcessorFactory.class;
     }
 
     private static void setHtmlProcessorFactory(
