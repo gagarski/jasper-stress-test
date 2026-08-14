@@ -18,6 +18,7 @@
         <exec.mainClass>com.example.reports.JasperStressTestApplication</exec.mainClass>
         <jackson.version>2.22.1</jackson.version>
         <args4j.version>2.37</args4j.version>
+        <progressbar.version>0.10.2</progressbar.version>
         <spring-boot.version>4.1.0</spring-boot.version>
     </properties>
 
@@ -55,6 +56,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>me.tongfei</groupId>
+            <artifactId>progressbar</artifactId>
+            <version>${progressbar.version}</version>
         </dependency>
         <dependency>
             <groupId>io.sf.carte</groupId>

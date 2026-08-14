@@ -15,7 +15,8 @@ The application:
 4. Extracts every HTML-rendered text element from the resulting `JasperPrint`.
 5. Compares its text, geometry, global attributes, and style runs with a JSON
    golden reference.
-6. Reports successful fills, verification mismatches, and exceptions.
+6. Displays live completion progress with count, rate, elapsed time, and ETA.
+7. Reports successful fills, verification mismatches, and exceptions.
 
 The reduced report contains three non-trivial `markup="html"` text elements and
 does not use subreports or a custom JasperReports repository service.
@@ -195,6 +196,10 @@ At the end of a stress run, the application prints:
 - Verification mismatches
 - Runs that failed with an exception
 - Elapsed time and throughput
+
+While the run is active, a terminal progress bar tracks completed fills. It is
+advanced by the executor coordinator as futures complete, so it measures
+finished work rather than merely submitted work.
 
 For the first verification mismatch, the expected and actual snapshots are
 printed as pretty-formatted JSON. For the first exception, the stack trace is

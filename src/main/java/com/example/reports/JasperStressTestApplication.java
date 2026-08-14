@@ -2,6 +2,9 @@ package com.example.reports;
 
 import com.example.reports.HtmlPrintVerifier.HtmlMismatch;
 import com.example.reports.HtmlPrintVerifier.VerificationResult;
+import me.tongfei.progressbar.ConsoleProgressBarConsumer;
+import me.tongfei.progressbar.ProgressBar;
+import me.tongfei.progressbar.ProgressBarBuilder;
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -15,6 +18,7 @@ import org.kohsuke.args4j.CmdLineException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
+import java.text.DecimalFormat;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.CompletionService;
@@ -30,6 +34,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class JasperStressTestApplication {
 
     private static final String MAIN_REPORT_RESOURCE = "reports/main_report.jrxml";
+    private static final int PROGRESS_BAR_WIDTH = 100;
 
     private JasperStressTestApplication() {
     }
@@ -229,24 +234,36 @@ public final class JasperStressTestApplication {
         boolean completedAllTasks = false;
 
         try {
-            while (completed < runCount) {
-                while (submitted < runCount && inFlight < maximumInFlight) {
-                    completions.submit(() -> {
-                        task.run();
-                        return null;
-                    });
-                    submitted++;
-                    inFlight++;
-                }
+            try (ProgressBar progressBar = new ProgressBarBuilder()
+                    .setTaskName("Report fills")
+                    .setInitialMax(runCount)
+                    .setUpdateIntervalMillis(250)
+                    .setConsumer(new ConsoleProgressBarConsumer(
+                            System.out,
+                            PROGRESS_BAR_WIDTH
+                    ))
+                    .showSpeed(new DecimalFormat("0.0"))
+                    .build()) {
+                while (completed < runCount) {
+                    while (submitted < runCount && inFlight < maximumInFlight) {
+                        completions.submit(() -> {
+                            task.run();
+                            return null;
+                        });
+                        submitted++;
+                        inFlight++;
+                    }
 
-                Future<Void> completedTask = completions.take();
-                completed++;
-                inFlight--;
-                try {
-                    completedTask.get();
-                } catch (ExecutionException exception) {
-                    erroredRuns.incrementAndGet();
-                    firstError.compareAndSet(null, exception.getCause());
+                    Future<Void> completedTask = completions.take();
+                    completed++;
+                    inFlight--;
+                    progressBar.step();
+                    try {
+                        completedTask.get();
+                    } catch (ExecutionException exception) {
+                        erroredRuns.incrementAndGet();
+                        firstError.compareAndSet(null, exception.getCause());
+                    }
                 }
             }
             completedAllTasks = true;
