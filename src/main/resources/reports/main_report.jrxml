@@ -1,0 +1,67 @@
+<jasperReport name="main_report"
+              language="java"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="515"
+              leftMargin="40"
+              rightMargin="40"
+              topMargin="40"
+              bottomMargin="40"
+              uuid="42e7742f-2590-4cde-bfd1-ce006a18f347">
+    <style name="Base" default="true" fontName="SansSerif" fontSize="11.0"/>
+    <title height="70">
+        <element kind="staticText"
+                 uuid="ed1c512a-b905-442e-a0f3-6fffe6b72cd1"
+                 x="0" y="0" width="515" height="34"
+                 fontSize="20.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[JasperReports HTML Markup Example]]></text>
+        </element>
+        <element kind="staticText"
+                 uuid="aa01650e-52d6-499d-923b-c5fba4033322"
+                 x="0" y="40" width="515" height="22"
+                 forecolor="#4A5568" hTextAlign="Center">
+            <text><![CDATA[The content below is rendered by a compiled subreport.]]></text>
+        </element>
+    </title>
+
+    <detail>
+        <band height="360" splitType="Stretch">
+            <element kind="rectangle"
+                     uuid="3a21d4f7-ad31-4e36-b13b-37100ad6d455"
+                     x="0" y="0" width="515" height="330"
+                     radius="8" mode="Opaque" backcolor="#F7FAFC">
+                <pen lineWidth="1.0" lineColor="#CBD5E0"/>
+            </element>
+
+            <element kind="staticText"
+                     uuid="c60a4fba-71be-453a-982b-530c9bd026d8"
+                     x="18" y="16" width="479" height="60"
+                     markup="html">
+                <text><![CDATA[<b>Rich text</b> can combine <i>emphasis</i>, <u>underlining</u>, and <font color="#2B6CB0">semantic color</font> in one text element.<br><br>The renderer also understands nested styles such as <b><i><font color="#9C4221">bold italic accent text</font></i></b>.]]></text>
+            </element>
+
+            <element kind="staticText"
+                     uuid="a90657f9-e5d4-4483-9303-50ee0871bf5e"
+                     x="18" y="96" width="479" height="74"
+                     markup="html">
+                <text><![CDATA[Typography works inline: H<sub>2</sub>O, E = mc<sup>2</sup>, <s>obsolete wording</s>, and a corrected <b>final statement</b>.<br><font size="14">A larger phrase</font> can sit beside <font size="8" color="#718096">a small annotation</font>.]]></text>
+            </element>
+
+            <element kind="staticText"
+                     uuid="fa1b7682-ad0f-4c90-bfe8-44dd8cc68f68"
+                     x="18" y="192" width="479" height="100"
+                     markup="html">
+                <text><![CDATA[<b><font color="#276749">Status: successful</font></b><br><br><i>This entire panel comes from the report.</i> It was filled using a non-empty dummy data source and includes <u>multiple HTML-marked text elements</u> handled by JasperReports' standard Swing HTML markup processor.]]></text>
+            </element>
+        </band>
+    </detail>
+
+    <pageFooter height="24">
+        <element kind="textField"
+                 uuid="dd84997d-fec3-46da-9a7c-f82423a6f5e9"
+                 x="415" y="4" width="100" height="18"
+                 hTextAlign="Right" forecolor="#718096">
+            <expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+        </element>
+    </pageFooter>
+</jasperReport>

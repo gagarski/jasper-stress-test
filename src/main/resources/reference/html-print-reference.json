@@ -1,0 +1,338 @@
+{
+  "htmlTextSnapshots" : [ {
+    "pageIndex" : 0,
+    "x" : 58,
+    "y" : 126,
+    "width" : 479,
+    "height" : 60,
+    "plainText" : "Rich text can combine emphasis, underlining, and semantic color in one text element.\n\nThe renderer also understands nested styles such as bold italic accent text.",
+    "globalAttributes" : [ {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "family",
+      "valueType" : "String",
+      "value" : "SansSerif"
+    }, {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "foreground",
+      "valueType" : "Color",
+      "value" : "#FF000000"
+    }, {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "size",
+      "valueType" : "Float",
+      "value" : "11.0"
+    }, {
+      "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+      "name" : "PDF_ENCODING",
+      "valueType" : "String",
+      "value" : "Cp1252"
+    }, {
+      "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+      "name" : "PDF_FONT_NAME",
+      "valueType" : "String",
+      "value" : "Helvetica"
+    } ],
+    "runs" : [ {
+      "startIndex" : 0,
+      "endIndex" : 9,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "weight",
+        "valueType" : "Float",
+        "value" : "2.0"
+      } ]
+    }, {
+      "startIndex" : 22,
+      "endIndex" : 30,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "posture",
+        "valueType" : "Float",
+        "value" : "0.2"
+      } ]
+    }, {
+      "startIndex" : 32,
+      "endIndex" : 43,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "underline",
+        "valueType" : "Integer",
+        "value" : "0"
+      } ]
+    }, {
+      "startIndex" : 49,
+      "endIndex" : 63,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF2B6CB0"
+      } ]
+    }, {
+      "startIndex" : 138,
+      "endIndex" : 161,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF9C4221"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "posture",
+        "valueType" : "Float",
+        "value" : "0.2"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "weight",
+        "valueType" : "Float",
+        "value" : "2.0"
+      } ]
+    }, {
+      "startIndex" : 0,
+      "endIndex" : 162,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "family",
+        "valueType" : "String",
+        "value" : "SansSerif"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF000000"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "size",
+        "valueType" : "Float",
+        "value" : "11.0"
+      }, {
+        "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+        "name" : "PDF_ENCODING",
+        "valueType" : "String",
+        "value" : "Cp1252"
+      }, {
+        "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+        "name" : "PDF_FONT_NAME",
+        "valueType" : "String",
+        "value" : "Helvetica"
+      } ]
+    } ]
+  }, {
+    "pageIndex" : 0,
+    "x" : 58,
+    "y" : 206,
+    "width" : 479,
+    "height" : 74,
+    "plainText" : "Typography works inline: H2O, E = mc2, obsolete wording, and a corrected final statement.\nA larger phrase can sit beside a small ",
+    "globalAttributes" : [ {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "family",
+      "valueType" : "String",
+      "value" : "SansSerif"
+    }, {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "foreground",
+      "valueType" : "Color",
+      "value" : "#FF000000"
+    }, {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "size",
+      "valueType" : "Float",
+      "value" : "11.0"
+    }, {
+      "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+      "name" : "PDF_ENCODING",
+      "valueType" : "String",
+      "value" : "Cp1252"
+    }, {
+      "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+      "name" : "PDF_FONT_NAME",
+      "valueType" : "String",
+      "value" : "Helvetica"
+    } ],
+    "runs" : [ {
+      "startIndex" : 26,
+      "endIndex" : 27,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "superscript",
+        "valueType" : "Integer",
+        "value" : "-1"
+      } ]
+    }, {
+      "startIndex" : 36,
+      "endIndex" : 37,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "superscript",
+        "valueType" : "Integer",
+        "value" : "1"
+      } ]
+    }, {
+      "startIndex" : 39,
+      "endIndex" : 55,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "strikethrough",
+        "valueType" : "Boolean",
+        "value" : "true"
+      } ]
+    }, {
+      "startIndex" : 73,
+      "endIndex" : 88,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "weight",
+        "valueType" : "Float",
+        "value" : "2.0"
+      } ]
+    }, {
+      "startIndex" : 90,
+      "endIndex" : 105,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "size",
+        "valueType" : "Float",
+        "value" : "36.0"
+      } ]
+    }, {
+      "startIndex" : 121,
+      "endIndex" : 129,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF718096"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "size",
+        "valueType" : "Float",
+        "value" : "36.0"
+      } ]
+    }, {
+      "startIndex" : 0,
+      "endIndex" : 129,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "family",
+        "valueType" : "String",
+        "value" : "SansSerif"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF000000"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "size",
+        "valueType" : "Float",
+        "value" : "11.0"
+      }, {
+        "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+        "name" : "PDF_ENCODING",
+        "valueType" : "String",
+        "value" : "Cp1252"
+      }, {
+        "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+        "name" : "PDF_FONT_NAME",
+        "valueType" : "String",
+        "value" : "Helvetica"
+      } ]
+    } ]
+  }, {
+    "pageIndex" : 0,
+    "x" : 58,
+    "y" : 302,
+    "width" : 479,
+    "height" : 100,
+    "plainText" : "Status: successful\n\nThis entire panel comes from the report. It was filled using a non-empty dummy data source and includes multiple HTML-marked text elements handled by JasperReports' standard Swing HTML markup processor.",
+    "globalAttributes" : [ {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "family",
+      "valueType" : "String",
+      "value" : "SansSerif"
+    }, {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "foreground",
+      "valueType" : "Color",
+      "value" : "#FF000000"
+    }, {
+      "attributeType" : "java.awt.font.TextAttribute",
+      "name" : "size",
+      "valueType" : "Float",
+      "value" : "11.0"
+    }, {
+      "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+      "name" : "PDF_ENCODING",
+      "valueType" : "String",
+      "value" : "Cp1252"
+    }, {
+      "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+      "name" : "PDF_FONT_NAME",
+      "valueType" : "String",
+      "value" : "Helvetica"
+    } ],
+    "runs" : [ {
+      "startIndex" : 0,
+      "endIndex" : 18,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF276749"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "weight",
+        "valueType" : "Float",
+        "value" : "2.0"
+      } ]
+    }, {
+      "startIndex" : 20,
+      "endIndex" : 60,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "posture",
+        "valueType" : "Float",
+        "value" : "0.2"
+      } ]
+    }, {
+      "startIndex" : 124,
+      "endIndex" : 158,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "underline",
+        "valueType" : "Integer",
+        "value" : "0"
+      } ]
+    }, {
+      "startIndex" : 0,
+      "endIndex" : 222,
+      "attributes" : [ {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "family",
+        "valueType" : "String",
+        "value" : "SansSerif"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "foreground",
+        "valueType" : "Color",
+        "value" : "#FF000000"
+      }, {
+        "attributeType" : "java.awt.font.TextAttribute",
+        "name" : "size",
+        "valueType" : "Float",
+        "value" : "11.0"
+      }, {
+        "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+        "name" : "PDF_ENCODING",
+        "valueType" : "String",
+        "value" : "Cp1252"
+      }, {
+        "attributeType" : "net.sf.jasperreports.engine.util.JRTextAttribute",
+        "name" : "PDF_FONT_NAME",
+        "valueType" : "String",
+        "value" : "Helvetica"
+      } ]
+    } ]
+  } ]
+}
