@@ -44,16 +44,32 @@ final class StressTestOptions {
     @Option(
             name = "--legacy-jeditor-pane-processor",
             usage = "use JasperReports' legacy JEditorPaneHtmlMarkupProcessor",
-            forbids = "--css4j-html-processor"
+            forbids = {
+                    "--css4j-html-processor",
+                    "--flying-saucer-html-processor"
+            }
     )
     private boolean legacyJEditorPaneProcessor;
 
     @Option(
             name = "--css4j-html-processor",
             usage = "use the experimental CSS4J-backed HTML markup processor",
-            forbids = "--legacy-jeditor-pane-processor"
+            forbids = {
+                    "--legacy-jeditor-pane-processor",
+                    "--flying-saucer-html-processor"
+            }
     )
     private boolean css4jHtmlProcessor;
+
+    @Option(
+            name = "--flying-saucer-html-processor",
+            usage = "use the experimental Flying Saucer-backed HTML markup processor",
+            forbids = {
+                    "--legacy-jeditor-pane-processor",
+                    "--css4j-html-processor"
+            }
+    )
+    private boolean flyingSaucerHtmlProcessor;
 
     @Option(
             name = "--edt-rendering",
@@ -67,7 +83,8 @@ final class StressTestOptions {
             usage = "fill once with the modern renderer on EDT and write golden JSON",
             forbids = {
                     "--legacy-jeditor-pane-processor",
-                    "--css4j-html-processor"
+                    "--css4j-html-processor",
+                    "--flying-saucer-html-processor"
             }
     )
     private File goldenOutput;
@@ -121,6 +138,10 @@ final class StressTestOptions {
 
     boolean css4jHtmlProcessor() {
         return css4jHtmlProcessor;
+    }
+
+    boolean flyingSaucerHtmlProcessor() {
+        return flyingSaucerHtmlProcessor;
     }
 
     boolean edtRendering() {

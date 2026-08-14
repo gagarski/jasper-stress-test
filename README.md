@@ -5,7 +5,8 @@ HTML markup. It is intended to reproduce and compare initialization and
 threading behavior in JasperReports' modern `HtmlEditorKitMarkupProcessor` and
 legacy `JEditorPaneHtmlMarkupProcessor` implementations. It also contains an
 experimental CSS4J-backed processor for comparing a non-Swing parsing and CSS
-style-resolution path.
+style-resolution path, plus a Flying Saucer-backed processor that uses Jsoup to
+normalize tolerant HTML fragments to XHTML before resolving CSS.
 
 The application:
 
@@ -29,6 +30,10 @@ does not use subreports or a custom JasperReports repository service.
 CSS4J 6.2 is not published to Maven Central. The POM therefore declares the
 project's release repository at `https://css4j.github.io/maven/`. The
 Validator.nu HTML parser dependency is available from Maven Central.
+
+Flying Saucer 9.13.3 and Jsoup 1.23.1 are available from Maven Central. Flying
+Saucer 9.13.x is the current release line compatible with this project's Java
+17 baseline; Flying Saucer 10 requires Java 21.
 
 ## Build
 
@@ -66,9 +71,10 @@ HTML processor directly on executor threads, without warm-up.
 | `--html-editor-kit-warmup` | `false` | On the Swing EDT, creates an `HTMLEditorKit`, creates its default document, and parses representative HTML before concurrent fills begin. |
 | `--jeditor-pane-warmup` | `false` | On the Swing EDT, exercises the complete legacy path by constructing a `JEditorPane` with representative HTML and making it non-editable. This subsumes the editor-kit warm-up for legacy rendering. |
 | `--legacy-jeditor-pane-processor` | `false` | Selects JasperReports' deprecated `JEditorPaneHtmlMarkupProcessor`. When absent, the modern `HtmlEditorKitMarkupProcessor` is used. |
-| `--css4j-html-processor` | `false` | Selects the experimental CSS4J/Validator.nu processor. It cannot be combined with `--legacy-jeditor-pane-processor`. |
+| `--css4j-html-processor` | `false` | Selects the experimental CSS4J/Validator.nu processor. It cannot be combined with either of the other processor-selection switches. |
+| `--flying-saucer-html-processor` | `false` | Selects the experimental Flying Saucer/Jsoup processor. It cannot be combined with either of the other processor-selection switches. |
 | `--edt-rendering` | `false` | Delegates every HTML conversion to the Swing EDT. It can be combined with any selected HTML processor. |
-| `--generate-golden FILE` | unset | Leaves stress-test mode, fills once using the modern processor on the EDT, and writes pretty-printed golden JSON to `FILE`. It cannot be combined with the legacy or CSS4J processors. |
+| `--generate-golden FILE` | unset | Leaves stress-test mode, fills once using the modern processor on the EDT, and writes pretty-printed golden JSON to `FILE`. It cannot be combined with any processor-selection switch. |
 | `--help`, `-h` | `false` | Prints command-line help and exits. |
 
 `--tasks` and `--threads` must be positive integers. Their defaults are
@@ -159,6 +165,35 @@ CSS4J's user-agent rules so `sub` and `sup` retain their inherited size while
 still producing superscript/subscript attributes. These compatibility rules let
 the CSS4J processor validate against the same Swing-generated golden reference.
 An explicitly supplied inline CSS `font-size` continues through CSS4J normally.
+
+Run the Flying Saucer proof of concept concurrently:
+
+```shell
+java -jar target/jasper-stress-test-1.0-SNAPSHOT.jar \
+  --tasks 10000 \
+  --threads 40 \
+  --flying-saucer-html-processor
+```
+
+The Flying Saucer processor follows the same boundary as the CSS4J processor:
+Jasper's recursive traversal, flow/list state, hyperlink creation, and styled
+text emission are retained. Jsoup first turns ordinary HTML fragments into
+well-formed XHTML; Flying Saucer then parses that XHTML and supplies its CSS 2.1
+cascade and calculated styles.
+
+Compatibility handling is deliberately narrow. The adapter maps the absolute
+legacy `<font size="1">` through `<font size="7">` scale to the same point sizes
+used by Jasper's Swing processor, translates `<font color>` and `<font face>`
+hints into CSS, and makes `sub` and `sup` inherit font size while preserving
+their vertical-align semantics. It also accounts for Flying Saucer's internal
+list representation of multi-value `text-decoration`. These rules allow the
+Flying Saucer processor to validate against the existing Swing-generated golden
+reference without expanding the HTML feature set.
+
+Flying Saucer mode is also combinable with `--edt-rendering` as a control. The
+processor creates a fresh Flying Saucer context for each conversion; EDT mode
+therefore measures serialization overhead rather than being required by the
+adapter's design.
 
 ## Golden reference
 
