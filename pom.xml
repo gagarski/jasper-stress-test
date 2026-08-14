@@ -7,7 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>jasper-stress-test</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>JasperReports HTML subreport example</name>
+    <name>JasperReports HTML stress test</name>
 
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
