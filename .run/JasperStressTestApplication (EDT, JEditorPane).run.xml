@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="JasperStressTestApplication (EDT, JEditorPane)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.example.reports.JasperStressTestApplication" />
+    <module name="jasper-stress-test" />
+    <option name="PROGRAM_PARAMETERS" value="--edt-rendering --legacy-jeditor-pane-processor -n $Prompt:Number of tasks:1000000$" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.reports.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
