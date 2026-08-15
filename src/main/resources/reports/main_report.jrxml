@@ -20,7 +20,7 @@
                  uuid="aa01650e-52d6-499d-923b-c5fba4033322"
                  x="0" y="40" width="515" height="22"
                  forecolor="#4A5568" hTextAlign="Center">
-            <text><![CDATA[The content below is rendered by a compiled subreport.]]></text>
+            <text><![CDATA[The content below is rendered directly by this report.]]></text>
         </element>
     </title>
 
