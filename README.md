@@ -20,7 +20,9 @@ The application:
 7. Reports successful fills, verification mismatches, and exceptions.
 
 The reduced report contains three non-trivial `markup="html"` text elements and
-does not use subreports or a custom JasperReports repository service.
+does not use subreports or a custom JasperReports repository service. Its first
+element includes a fully closed definition list, intentionally exercising a
+Swing HTML DTD path that the representative editor-kit warm-up does not touch.
 
 ## Requirements
 

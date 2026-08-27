@@ -37,7 +37,7 @@
                      uuid="c60a4fba-71be-453a-982b-530c9bd026d8"
                      x="18" y="16" width="479" height="60"
                      markup="html">
-                <text><![CDATA[<b>Rich text</b> can combine <i>emphasis</i>, <u>underlining</u>, and <font color="#2B6CB0">semantic color</font> in one text element.<br><br>The renderer also understands nested styles such as <b><i><font color="#9C4221">bold italic accent text</font></i></b>.]]></text>
+                <text><![CDATA[<html><body><dl><dt><b>Alpha term</b></dt><dd>first definition</dd><dt><i>Beta term</i></dt><dd>second definition</dd></dl></body></html>]]></text>
             </element>
 
             <element kind="staticText"

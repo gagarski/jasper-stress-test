@@ -5,7 +5,7 @@
     "y" : 126,
     "width" : 479,
     "height" : 60,
-    "plainText" : "Rich text can combine emphasis, underlining, and semantic color in one text element.\n\nThe renderer also understands nested styles such as bold italic accent text.",
+    "plainText" : "Alpha term\nfirst definition\nBeta term\nsecond definition",
     "globalAttributes" : [ {
       "attributeType" : "java.awt.font.TextAttribute",
       "name" : "family",
@@ -34,7 +34,7 @@
     } ],
     "runs" : [ {
       "startIndex" : 0,
-      "endIndex" : 9,
+      "endIndex" : 10,
       "attributes" : [ {
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "weight",
@@ -42,54 +42,17 @@
         "value" : "2.0"
       } ]
     }, {
-      "startIndex" : 22,
-      "endIndex" : 30,
+      "startIndex" : 28,
+      "endIndex" : 37,
       "attributes" : [ {
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "posture",
         "valueType" : "Float",
         "value" : "0.2"
-      } ]
-    }, {
-      "startIndex" : 32,
-      "endIndex" : 43,
-      "attributes" : [ {
-        "attributeType" : "java.awt.font.TextAttribute",
-        "name" : "underline",
-        "valueType" : "Integer",
-        "value" : "0"
-      } ]
-    }, {
-      "startIndex" : 49,
-      "endIndex" : 63,
-      "attributes" : [ {
-        "attributeType" : "java.awt.font.TextAttribute",
-        "name" : "foreground",
-        "valueType" : "Color",
-        "value" : "#FF2B6CB0"
-      } ]
-    }, {
-      "startIndex" : 138,
-      "endIndex" : 161,
-      "attributes" : [ {
-        "attributeType" : "java.awt.font.TextAttribute",
-        "name" : "foreground",
-        "valueType" : "Color",
-        "value" : "#FF9C4221"
-      }, {
-        "attributeType" : "java.awt.font.TextAttribute",
-        "name" : "posture",
-        "valueType" : "Float",
-        "value" : "0.2"
-      }, {
-        "attributeType" : "java.awt.font.TextAttribute",
-        "name" : "weight",
-        "valueType" : "Float",
-        "value" : "2.0"
       } ]
     }, {
       "startIndex" : 0,
-      "endIndex" : 162,
+      "endIndex" : 55,
       "attributes" : [ {
         "attributeType" : "java.awt.font.TextAttribute",
         "name" : "family",
