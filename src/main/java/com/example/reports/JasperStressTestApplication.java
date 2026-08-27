@@ -67,6 +67,7 @@ public final class JasperStressTestApplication {
                 !options.generateGolden() && options.legacyJEditorPaneProcessor(),
                 !options.generateGolden() && options.css4jHtmlProcessor(),
                 !options.generateGolden() && options.flyingSaucerHtmlProcessor(),
+                !options.generateGolden() && options.jsoupHtmlProcessor(),
                 options.generateGolden() || options.edtRendering()
         );
         JasperReport mainReport = compileMainReport(context);
@@ -155,6 +156,7 @@ public final class JasperStressTestApplication {
             boolean legacyJEditorPaneProcessor,
             boolean css4jHtmlProcessor,
             boolean flyingSaucerHtmlProcessor,
+            boolean jsoupHtmlProcessor,
             boolean edtRendering
     ) {
         SimpleJasperReportsContext context = new SimpleJasperReportsContext(
@@ -165,7 +167,8 @@ public final class JasperStressTestApplication {
                     context,
                     legacyJEditorPaneProcessor,
                     css4jHtmlProcessor,
-                    flyingSaucerHtmlProcessor
+                    flyingSaucerHtmlProcessor,
+                    jsoupHtmlProcessor
             );
         } else if (legacyJEditorPaneProcessor) {
             JasperSwingHacks.useLegacyJEditorPaneHtmlProcessor(context);
@@ -173,6 +176,8 @@ public final class JasperStressTestApplication {
             JasperSwingHacks.useCss4jHtmlProcessor(context);
         } else if (flyingSaucerHtmlProcessor) {
             JasperSwingHacks.useFlyingSaucerHtmlProcessor(context);
+        } else if (jsoupHtmlProcessor) {
+            JasperSwingHacks.useJsoupHtmlProcessor(context);
         }
 
         return context;
@@ -319,6 +324,10 @@ public final class JasperStressTestApplication {
         System.out.printf(
                 "Flying Saucer processor:   %s%n",
                 enabled(options.flyingSaucerHtmlProcessor())
+        );
+        System.out.printf(
+                "Jsoup HTML processor:       %s%n",
+                enabled(options.jsoupHtmlProcessor())
         );
         System.out.printf("EDT HTML rendering:      %s%n", enabled(options.edtRendering()));
         System.out.printf("Successful runs:         %,d%n", successfulRuns);

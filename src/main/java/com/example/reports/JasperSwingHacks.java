@@ -71,18 +71,27 @@ public final class JasperSwingHacks {
         );
     }
 
+    public static void useJsoupHtmlProcessor(SimpleJasperReportsContext context) {
+        setHtmlProcessorFactory(
+                context,
+                JsoupHtmlMarkupProcessor.Factory.class
+        );
+    }
+
     public static void enableEdtHtmlRendering(
             SimpleJasperReportsContext context,
             boolean legacyJEditorPaneProcessor,
             boolean css4jHtmlProcessor,
-            boolean flyingSaucerHtmlProcessor
+            boolean flyingSaucerHtmlProcessor,
+            boolean jsoupHtmlProcessor
     ) {
         setHtmlProcessorFactory(
                 context,
                 edtFactory(
                         legacyJEditorPaneProcessor,
                         css4jHtmlProcessor,
-                        flyingSaucerHtmlProcessor
+                        flyingSaucerHtmlProcessor,
+                        jsoupHtmlProcessor
                 )
         );
     }
@@ -90,7 +99,8 @@ public final class JasperSwingHacks {
     private static Class<? extends MarkupProcessorFactory> edtFactory(
             boolean legacyJEditorPaneProcessor,
             boolean css4jHtmlProcessor,
-            boolean flyingSaucerHtmlProcessor
+            boolean flyingSaucerHtmlProcessor,
+            boolean jsoupHtmlProcessor
     ) {
         if (legacyJEditorPaneProcessor) {
             return EdtJEditorPaneHtmlMarkupProcessorFactory.class;
@@ -100,6 +110,9 @@ public final class JasperSwingHacks {
         }
         if (flyingSaucerHtmlProcessor) {
             return EdtFlyingSaucerHtmlMarkupProcessorFactory.class;
+        }
+        if (jsoupHtmlProcessor) {
+            return EdtJsoupHtmlMarkupProcessorFactory.class;
         }
         return EdtHtmlMarkupProcessorFactory.class;
     }

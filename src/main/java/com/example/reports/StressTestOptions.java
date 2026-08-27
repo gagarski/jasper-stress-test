@@ -46,7 +46,8 @@ final class StressTestOptions {
             usage = "use JasperReports' legacy JEditorPaneHtmlMarkupProcessor",
             forbids = {
                     "--css4j-html-processor",
-                    "--flying-saucer-html-processor"
+                    "--flying-saucer-html-processor",
+                    "--jsoup-html-processor"
             }
     )
     private boolean legacyJEditorPaneProcessor;
@@ -56,7 +57,8 @@ final class StressTestOptions {
             usage = "use the experimental CSS4J-backed HTML markup processor",
             forbids = {
                     "--legacy-jeditor-pane-processor",
-                    "--flying-saucer-html-processor"
+                    "--flying-saucer-html-processor",
+                    "--jsoup-html-processor"
             }
     )
     private boolean css4jHtmlProcessor;
@@ -66,10 +68,22 @@ final class StressTestOptions {
             usage = "use the experimental Flying Saucer-backed HTML markup processor",
             forbids = {
                     "--legacy-jeditor-pane-processor",
-                    "--css4j-html-processor"
+                    "--css4j-html-processor",
+                    "--jsoup-html-processor"
             }
     )
     private boolean flyingSaucerHtmlProcessor;
+
+    @Option(
+            name = "--jsoup-html-processor",
+            usage = "use the experimental Jsoup-backed HTML markup processor",
+            forbids = {
+                    "--legacy-jeditor-pane-processor",
+                    "--css4j-html-processor",
+                    "--flying-saucer-html-processor"
+            }
+    )
+    private boolean jsoupHtmlProcessor;
 
     @Option(
             name = "--edt-rendering",
@@ -84,7 +98,8 @@ final class StressTestOptions {
             forbids = {
                     "--legacy-jeditor-pane-processor",
                     "--css4j-html-processor",
-                    "--flying-saucer-html-processor"
+                    "--flying-saucer-html-processor",
+                    "--jsoup-html-processor"
             }
     )
     private File goldenOutput;
@@ -142,6 +157,10 @@ final class StressTestOptions {
 
     boolean flyingSaucerHtmlProcessor() {
         return flyingSaucerHtmlProcessor;
+    }
+
+    boolean jsoupHtmlProcessor() {
+        return jsoupHtmlProcessor;
     }
 
     boolean edtRendering() {
